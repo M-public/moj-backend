@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yupi.moj.mapper.QusetionMapper">
 
-    <resultMap id="BaseResultMap" type="com.yupi.moj.model.entity.Qusetion">
+    <resultMap id="BaseResultMap" type="com.yupi.moj.model.entity.Question">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="title" column="title" jdbcType="VARCHAR"/>
             <result property="content" column="content" jdbcType="VARCHAR"/>

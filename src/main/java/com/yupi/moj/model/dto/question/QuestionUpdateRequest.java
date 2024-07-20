@@ -11,8 +11,7 @@ import java.util.List;
 /**
  * 更新请求
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ 
  */
 @Data
 public class QuestionUpdateRequest implements Serializable {
@@ -46,6 +45,16 @@ public class QuestionUpdateRequest implements Serializable {
      * 创建用户 id
      */
     private Long userId;
+
+    /**
+     * 判题用例（json数组）
+     */
+    private List<JudgeCase> judgeCase;
+
+    /**
+     * 判题配置（json对象）
+     */
+    private List<JudgeConfig> judgeConfig;
 
     private static final long serialVersionUID = 1L;
 }

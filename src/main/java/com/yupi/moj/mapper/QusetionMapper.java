@@ -1,6 +1,6 @@
 package com.yupi.moj.mapper;
 
-import com.yupi.moj.model.entity.Qusetion;
+import com.yupi.moj.model.entity.Question;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2024-06-30 22:27:17
 * @Entity com.yupi.moj.model.entity.Qusetion
 */
-public interface QusetionMapper extends BaseMapper<Qusetion> {
+public interface QusetionMapper extends BaseMapper<Question> {
 
 }
 

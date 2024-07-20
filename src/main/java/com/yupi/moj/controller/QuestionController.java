@@ -30,8 +30,7 @@ import java.util.List;
 /**
  * 题目接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ 
  */
 @RestController
 @RequestMapping("/question")
@@ -206,23 +205,6 @@ public class QuestionController {
     }
 
     // endregion
-
-    /**
-     * 分页搜索（从 ES 查询，封装类）
-     *
-     * @param questionQueryRequest
-     * @param request
-     * @return
-     */
-    @PostMapping("/search/page/vo")
-    public BaseResponse<Page<QuestionVO>> searchQuestionVOByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
-            HttpServletRequest request) {
-        long size = questionQueryRequest.getPageSize();
-        // 限制爬虫
-        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
-        Page<Question> questionPage = questionService.searchFromEs(questionQueryRequest);
-        return ResultUtils.success(questionService.getQuestionVOPage(questionPage, request));
-    }
 
     /**
      * 编辑（用户）

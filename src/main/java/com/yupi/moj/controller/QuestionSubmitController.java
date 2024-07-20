@@ -4,7 +4,7 @@ import com.yupi.moj.common.BaseResponse;
 import com.yupi.moj.common.ErrorCode;
 import com.yupi.moj.common.ResultUtils;
 import com.yupi.moj.exception.BusinessException;
-import com.yupi.moj.model.dto.postthumb.QuestionSubmitAddRequest;
+import com.yupi.moj.model.dto.questionsubmit.QuestionSubmitAddRequest;
 import com.yupi.moj.model.entity.User;
 import com.yupi.moj.service.QuestionSubmitService;
 import com.yupi.moj.service.UserService;
@@ -20,8 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 题目提交接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ 
  */
 @RestController
 @RequestMapping("/question_submit")
@@ -35,23 +34,22 @@ public class QuestionSubmitController {
     private UserService userService;
 
     /**
-     * 点赞 / 取消点赞
+     * 提交题目
      *
      * @param questionSubmitAddRequest
      * @param request
-     * @return resultNum 本次点赞变化数
+     * @return 提交记录id
      */
     @PostMapping("/")
-    public BaseResponse<Integer> doThumb(@RequestBody QuestionSubmitAddRequest questionSubmitAddRequest,
+    public BaseResponse<Long> doQuestionSubmit(@RequestBody QuestionSubmitAddRequest questionSubmitAddRequest,
             HttpServletRequest request) {
-        if (questionSubmitAddRequest == null || questionSubmitAddRequest.getPostId() <= 0) {
+        if (questionSubmitAddRequest == null || questionSubmitAddRequest.getQuestionId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         // 登录才能点赞
         final User loginUser = userService.getLoginUser(request);
-        long postId = questionSubmitAddRequest.getPostId();
-        int result = questionSubmitService.doQuestionSubmit(postId, loginUser);
-        return ResultUtils.success(result);
+        long questionSubmitId = questionSubmitService.doQuestionSubmit(questionSubmitAddRequest, loginUser);
+        return ResultUtils.success(questionSubmitId);
     }
 
 }
