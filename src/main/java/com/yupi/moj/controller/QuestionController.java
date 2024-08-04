@@ -10,10 +10,8 @@ import com.yupi.moj.common.ResultUtils;
 import com.yupi.moj.constant.UserConstant;
 import com.yupi.moj.exception.BusinessException;
 import com.yupi.moj.exception.ThrowUtils;
-import com.yupi.moj.model.dto.question.QuestionAddRequest;
-import com.yupi.moj.model.dto.question.QuestionEditRequest;
-import com.yupi.moj.model.dto.question.QuestionQueryRequest;
-import com.yupi.moj.model.dto.question.QuestionUpdateRequest;
+import com.yupi.moj.model.dto.question.*;
+import com.yupi.moj.model.dto.user.UserQueryRequest;
 import com.yupi.moj.model.entity.Question;
 import com.yupi.moj.model.entity.User;
 import com.yupi.moj.model.vo.QuestionVO;
@@ -30,7 +28,6 @@ import java.util.List;
 /**
  * 题目接口
  *
- 
  */
 @RestController
 @RequestMapping("/question")
@@ -63,6 +60,16 @@ public class QuestionController {
         if (tags != null) {
             question.setTags(JSONUtil.toJsonStr(tags));
         }
+
+        List<JudgeCase> judgeCase = questionAddRequest.getJudgeCase();
+        if (judgeCase != null){
+            question.setJudgeCase(JSONUtil.toJsonStr(judgeCase));
+        }
+        JudgeConfig judgeConfig = questionAddRequest.getJudgeConfig();
+        if (judgeConfig != null){
+            question.setJudgeConfig(JSONUtil.toJsonStr(judgeConfig));
+        }
+
         questionService.validQuestion(question, true);
         User loginUser = userService.getLoginUser(request);
         question.setUserId(loginUser.getId());
@@ -117,6 +124,16 @@ public class QuestionController {
         if (tags != null) {
             question.setTags(JSONUtil.toJsonStr(tags));
         }
+        // 增加更新judgeCase
+        List<JudgeCase> judgeCase = questionUpdateRequest.getJudgeCase();
+        if (judgeCase != null){
+            question.setJudgeCase(JSONUtil.toJsonStr(judgeCase));
+        }
+        // 增加更新judgeConfig
+        JudgeConfig judgeConfig = questionUpdateRequest.getJudgeConfig();
+        if (judgeConfig != null){
+            question.setJudgeConfig(JSONUtil.toJsonStr(judgeConfig));
+        }
         // 参数校验
         questionService.validQuestion(question, false);
         long id = questionUpdateRequest.getId();
@@ -146,7 +163,7 @@ public class QuestionController {
     }
 
     /**
-     * 分页获取列表（仅管理员）
+     * 分页获取题目列表（仅管理员）
      *
      * @param questionQueryRequest
      * @return
@@ -223,6 +240,16 @@ public class QuestionController {
         List<String> tags = questionEditRequest.getTags();
         if (tags != null) {
             question.setTags(JSONUtil.toJsonStr(tags));
+        }
+        // 增加编辑judgeCase
+        List<JudgeCase> judgeCase = questionEditRequest.getJudgeCase();
+        if (judgeCase != null){
+            question.setJudgeCase(JSONUtil.toJsonStr(judgeCase));
+        }
+        // 增加编辑judgeConfig
+        JudgeConfig judgeConfig = questionEditRequest.getJudgeConfig();
+        if (judgeConfig != null){
+            question.setJudgeConfig(JSONUtil.toJsonStr(judgeConfig));
         }
         // 参数校验
         questionService.validQuestion(question, false);

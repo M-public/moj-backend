@@ -35,15 +35,6 @@ public class QuestionAddRequest implements Serializable {
      */
     private String answer;
 
-    /**
-     * 题目提交数
-     */
-    private Integer submitNum;
-
-    /**
-     * 题目通过数
-     */
-    private Integer acceptNum;
 
     /**
      * 判题用例（json数组）
@@ -53,7 +44,7 @@ public class QuestionAddRequest implements Serializable {
     /**
      * 判题配置（json对象）
      */
-    private List<JudgeConfig> judgeConfig;
+    private JudgeConfig judgeConfig;
 
     private static final long serialVersionUID = 1L;
 }
