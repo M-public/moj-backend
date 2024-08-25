@@ -26,7 +26,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
-* @author 12059
+* @author menglingqi
 * @description 针对表【qusetion(题目)】的数据库操作Service实现
 * @createDate 2024-06-30 22:27:17
 */
@@ -128,7 +128,7 @@ public class QusetionServiceImpl extends ServiceImpl<QusetionMapper, Question>
             user = userService.getById(userId);
         }
         UserVO userVO = userService.getUserVO(user);
-        questionVO.setUaerVO(userVO);
+        questionVO.setUserVO(userVO);
         return questionVO;
     }
 
@@ -152,7 +152,7 @@ public class QusetionServiceImpl extends ServiceImpl<QusetionMapper, Question>
             if (userIdUserListMap.containsKey(userId)) {
                 user = userIdUserListMap.get(userId).get(0);
             }
-            questionVO.setUaerVO(userService.getUserVO(user));
+            questionVO.setUserVO(userService.getUserVO(user));
             return questionVO;
         }).collect(Collectors.toList());
         questionVOPage.setRecords(questionVOList);

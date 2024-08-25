@@ -11,7 +11,7 @@ import com.yupi.moj.model.vo.QuestionVO;
 import javax.servlet.http.HttpServletRequest;
 
 /**
-* @author 12059
+* @author menglingqi
 * @description 针对表【qusetion(题目)】的数据库操作Service
 * @createDate 2024-06-30 22:27:17
 */

@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 题目
+ * 题目封装类
  * @TableName qusetion
  */
 
@@ -85,7 +85,7 @@ public class QuestionVO implements Serializable {
     /**
      * 创建题目人的信息
      */
-    private UserVO uaerVO;
+    private UserVO userVO;
 
 
     /**

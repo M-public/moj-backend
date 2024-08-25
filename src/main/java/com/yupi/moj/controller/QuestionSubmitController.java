@@ -9,8 +9,11 @@ import com.yupi.moj.constant.UserConstant;
 import com.yupi.moj.exception.BusinessException;
 import com.yupi.moj.model.dto.question.QuestionQueryRequest;
 import com.yupi.moj.model.dto.questionsubmit.QuestionSubmitAddRequest;
+import com.yupi.moj.model.dto.questionsubmit.QuestionSubmitQueryRequest;
 import com.yupi.moj.model.entity.Question;
+import com.yupi.moj.model.entity.QuestionSubmit;
 import com.yupi.moj.model.entity.User;
+import com.yupi.moj.model.vo.QuestionSubmitVO;
 import com.yupi.moj.service.QuestionSubmitService;
 import com.yupi.moj.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -60,18 +63,20 @@ public class QuestionSubmitController {
 
 
     /**
-     * 分页获取题目提交列表
+     * 分页获取题目提交列表（除了管理员外，普通用户只能看到飞答案、提交代码等公开信息）
      *
-     * @param questionQueryRequest
+     * @param questionSubmitQueryRequest
      * @return
      */
-//    @PostMapping("/list/page")
-//    public BaseResponse<Page<Question>> listQuestionSubmitByPage(@RequestBody QuestionQueryRequest questionQueryRequest) {
-//        long current = questionQueryRequest.getCurrent();
-//        long size = questionQueryRequest.getPageSize();
-//        Page<Question> questionPage = questionService.page(new Page<>(current, size),
-//                questionService.getQueryWrapper(questionQueryRequest));
-//        return ResultUtils.success(questionPage);
-//    }
+    @PostMapping("/list/page")
+    public BaseResponse<Page<QuestionSubmitVO>> listQuestionSubmitByPage(@RequestBody QuestionSubmitQueryRequest questionSubmitQueryRequest, HttpServletRequest request) {
+        long current = questionSubmitQueryRequest.getCurrent();
+        long size = questionSubmitQueryRequest.getPageSize();
+        // 从数据库中查询原始的题目提交分页信息
+        Page<QuestionSubmit> questionSubmitPage = questionSubmitService.page(new Page<>(current, size),
+                questionSubmitService.getQueryWrapper(questionSubmitQueryRequest));
+        // 返回脱敏信息
+        return ResultUtils.success(questionSubmitService.getQuestionSubmitVOPage(questionSubmitPage, request));
+    }
 
 }
