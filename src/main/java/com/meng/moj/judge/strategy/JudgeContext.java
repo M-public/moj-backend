@@ -1,7 +1,7 @@
 package com.meng.moj.judge.strategy;
 
 import com.meng.moj.model.dto.question.JudgeCase;
-import com.meng.moj.model.dto.questionsubmit.JudgeInfo;
+import com.meng.moj.judge.codesandbox.model.JudgeInfo;
 import com.meng.moj.model.entity.Question;
 import com.meng.moj.model.entity.QuestionSubmit;
 import lombok.Data;

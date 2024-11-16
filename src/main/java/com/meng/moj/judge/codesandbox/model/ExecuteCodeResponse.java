@@ -1,6 +1,5 @@
 package com.meng.moj.judge.codesandbox.model;
 
-import com.meng.moj.model.dto.questionsubmit.JudgeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

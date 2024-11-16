@@ -3,7 +3,7 @@ package com.meng.moj.judge.codesandbox.impl;
 import com.meng.moj.judge.codesandbox.CodeSandBox;
 import com.meng.moj.judge.codesandbox.model.ExecuteCodeRequest;
 import com.meng.moj.judge.codesandbox.model.ExecuteCodeResponse;
-import com.meng.moj.model.dto.questionsubmit.JudgeInfo;
+import com.meng.moj.judge.codesandbox.model.JudgeInfo;
 import com.meng.moj.model.enums.JudgeInfoMessageEnum;
 import com.meng.moj.model.enums.QuestionSubmitStatusEnum;
 
