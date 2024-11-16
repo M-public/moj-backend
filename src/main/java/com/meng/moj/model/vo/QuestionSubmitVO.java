@@ -1,7 +1,7 @@
 package com.meng.moj.model.vo;
 
 import cn.hutool.json.JSONUtil;
-import com.meng.moj.model.dto.questionsubmit.JudgeInfo;
+import com.meng.moj.judge.codesandbox.model.JudgeInfo;
 import com.meng.moj.model.entity.QuestionSubmit;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;

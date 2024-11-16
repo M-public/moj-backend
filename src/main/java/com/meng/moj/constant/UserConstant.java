@@ -3,7 +3,6 @@ package com.meng.moj.constant;
 /**
  * 用户常量
  *
- 
  */
 public interface UserConstant {
 

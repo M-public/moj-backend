@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 /**
  * 题目提交语言枚举
  *
- 
  */
 public enum QuestionSubmitLanguageEnum {
 

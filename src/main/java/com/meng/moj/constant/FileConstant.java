@@ -3,7 +3,6 @@ package com.meng.moj.constant;
 /**
  * 文件常量
  *
- 
  */
 public interface FileConstant {
 

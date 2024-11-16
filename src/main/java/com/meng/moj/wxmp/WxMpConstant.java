@@ -3,7 +3,6 @@ package com.meng.moj.wxmp;
 /**
  * 微信公众号相关常量
  *
- 
  **/
 public class WxMpConstant {
 

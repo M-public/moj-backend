@@ -3,7 +3,6 @@ package com.meng.moj.common;
 /**
  * 返回工具类
  *
- 
  */
 public class ResultUtils {
 

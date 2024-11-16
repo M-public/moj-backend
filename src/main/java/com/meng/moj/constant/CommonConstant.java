@@ -3,7 +3,6 @@ package com.meng.moj.constant;
 /**
  * 通用常量
  *
- 
  */
 public interface CommonConstant {
 
